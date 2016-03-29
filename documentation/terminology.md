@@ -6,7 +6,7 @@ The purpose of this document is to provide definitions for common terms that are
 
 **DCP Stream:** A sequence of data mutations for a given VBucket.
 
-**Consumer:** The endpoint in a DCP connection that recieves data.
+**Consumer:** The endpoint in a DCP connection that receives data.
 
 **History Branch:** Occurs whenever a VBucket changes its state from non-active to active state or in the event of a failover or uncontrolled shutdown and restart. Since sequence numbers are assigned only by the active VBucket it is possible that during failures that sequence numbers might be reassigned. When this happens we say that the mutation history has branched. To resolve branching conflicts we add a new failover log entry to the active VBucket in cases where sequence numbers might be reassigned (eg. in failure scenarios).
 
@@ -22,9 +22,9 @@ The purpose of this document is to provide definitions for common terms that are
 
 **Sequence Number:** Each mutation that occurs on a vBucket is assigned a number, which strictly increases as events are assigned numbers (there is no harm in skipping numbers, but they must increase), that can be used to order that event against other mutations within the same VBucket. This does not give a cluster-wide ordering of events, but it does enable processes watching events on a vBucket to resume where they left off after a disconnect.
 
-**Snapshot:** A set of unique ordered keys that is sent by a DCP Stream. When a full snapshot is received the Consumer is guarenteed to have a consistent view of the database up to the last sequence number recieved in the snapshot.
+**Snapshot:** A set of unique ordered keys that is sent by a DCP Stream. When a full snapshot is received the Consumer is guaranteed to have a consistent view of the database up to the last sequence number recieved in the snapshot.
 
-**VBucket:** A computed subset of all possible keys in Couchbase (eg. shard or parition).
+**VBucket:** A computed subset of all possible keys in Couchbase (eg. shard or partition).
 
 **VBucket UUID:** A randomly generated number which is used to denote a history branch.
 
